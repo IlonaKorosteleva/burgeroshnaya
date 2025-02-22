@@ -1,0 +1,28 @@
+.ingredientsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ingredient {
+    position: relative;
+    width: 272px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.ingredient__info {
+    display: flex;
+    gap: 4px;
+}
+
+.ingredientDetails {
+    
+    background-color: #1C1C21;
+    border-radius: 40px;
+    border: 1px solid #1C1C21;
+}

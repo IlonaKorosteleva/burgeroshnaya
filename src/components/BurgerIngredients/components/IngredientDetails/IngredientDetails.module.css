@@ -1,0 +1,20 @@
+.IngredientDetails_container {
+    display: flex;
+    flex-direction: column;
+    min-width: 720px;
+}
+
+.IngredientDetails__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.IngredientDetails__parameter {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

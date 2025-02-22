@@ -1,0 +1,12 @@
+.burgerConstructor_container {
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+.burgerConstructor__total {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 40px;
+}

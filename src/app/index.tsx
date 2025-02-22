@@ -1,33 +1,33 @@
-import { clsx } from 'clsx';
-import { useState } from 'react';
-import s from './app.module.scss';
-import reactLogo from './assets/react.svg';
-import { ReactComponent as TypescriptLogo } from './assets/typescript.svg';
-
+import { useEffect, useState } from 'react';
+import { AppHeader, BurgerConstructor, BurgerIngredients } from '../components';
+import styles from './App.module.css';
 export const App = () => {
-	// const num = 0
-	const [count, setCount] = useState(0);
+	const [ingredients, setIngredients] = useState([]);
+	useEffect(() => {
+		fetch('https://norma.nomoreparties.space/api/ingredients')
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error(`Ошибка ${response.status}`);
+				}
+				return response.json();
+			})
+			.then(({ data }) => {
+				setIngredients(data);
+			})
+			.catch((error) => console.error('Ошибка загрузки:', error));
+	}, []);
 
 	return (
-		<div className='page'>
-			<div className='logo-wrapper'>
-				<a href='https://reactjs.org' target='_blank' rel='noreferrer'>
-					<img
-						src={reactLogo}
-						className={clsx(s.logo, s.react)}
-						alt='React logo'
-					/>
-				</a>
-				<a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
-					<TypescriptLogo className={s.logo} />
-				</a>
-			</div>
-			<h1>React + TS</h1>
-			<div className={s.card}>
-				<button onClick={() => setCount((count) => count + 1)}>
-					count is {count}
-				</button>
-			</div>
-		</div>
+		<>
+			<AppHeader />
+			<main className={styles.container}>
+				<section>
+					<BurgerIngredients ingredients={ingredients} />
+				</section>
+				<section>
+					<BurgerConstructor />
+				</section>
+			</main>
+		</>
 	);
 };
