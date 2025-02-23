@@ -9,9 +9,17 @@
     z-index: 1;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modal_header {
+    height: '66px';
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
+
+.buttonWrapper {
+    cursor: pointer;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}

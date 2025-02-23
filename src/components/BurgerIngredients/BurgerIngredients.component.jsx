@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
 import styles from './BurgerIngredients.module.css';
 import { IngredientsList } from './components';
+import { ingredientPropType } from '@utils/constants';
 export const BurgerIngredients = ({ ingredients }) => {
 	const [current, setCurrent] = useState('Булки');
 	const bunsRef = useRef(null);
@@ -67,20 +68,5 @@ export const BurgerIngredients = ({ ingredients }) => {
 };
 
 BurgerIngredients.propTypes = {
-	ingredients: PropTypes.arrayOf(
-		PropTypes.shape({
-			_id: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
-			type: PropTypes.oneOf(['bun', 'sauce', 'main']).isRequired,
-			proteins: PropTypes.number.isRequired,
-			fat: PropTypes.number.isRequired,
-			carbohydrates: PropTypes.number.isRequired,
-			calories: PropTypes.number.isRequired,
-			price: PropTypes.number.isRequired,
-			image: PropTypes.string.isRequired,
-			image_mobile: PropTypes.string.isRequired,
-			image_large: PropTypes.string.isRequired,
-			__v: PropTypes.number.isRequired,
-		})
-	).isRequired,
+	ingredients: PropTypes.arrayOf(ingredientPropType).isRequired,
 };

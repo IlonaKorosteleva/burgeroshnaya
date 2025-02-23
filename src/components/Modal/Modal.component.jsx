@@ -26,21 +26,10 @@ export const Modal = ({ children, title, onClose }) => {
 		<>
 			<ModalOverlay onClose={onClose} />
 			<div className={`${styles.modal} pb-15`}>
-				<div
-					className='mt-10 ml-10 mr-10'
-					style={{
-						height: '66px',
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-					}}>
+				<div className={`${styles.modal_header} mt-10 ml-10 mr-10`}>
 					<p className='text text_type_main-large'>{title}</p>
 					<div
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-						}}
+						className={styles.buttonWrapper}
 						tabIndex={0}
 						role='button'
 						onClick={onClose}

@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { Modal } from '../../../Modal/Modal.component';
 import { useState } from 'react';
 import { IngredientDetails } from '../IngredientDetails';
+import { ingredientPropType } from '@utils/constants';
 
 export const IngredientsList = ({ ingredients }) => {
 	const [selectedIngredient, setSelectedIngredient] = useState(null);
@@ -52,20 +53,5 @@ export const IngredientsList = ({ ingredients }) => {
 };
 
 IngredientsList.propTypes = {
-	ingredients: PropTypes.arrayOf(
-		PropTypes.shape({
-			_id: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
-			type: PropTypes.oneOf(['bun', 'sauce', 'main']).isRequired,
-			proteins: PropTypes.number.isRequired,
-			fat: PropTypes.number.isRequired,
-			carbohydrates: PropTypes.number.isRequired,
-			calories: PropTypes.number.isRequired,
-			price: PropTypes.number.isRequired,
-			image: PropTypes.string.isRequired,
-			image_mobile: PropTypes.string.isRequired,
-			image_large: PropTypes.string.isRequired,
-			__v: PropTypes.number.isRequired,
-		})
-	).isRequired,
+	ingredients: PropTypes.arrayOf(ingredientPropType).isRequired,
 };
